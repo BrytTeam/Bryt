@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BRYT Token</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #111; color: #fff; }
+    header { background: #222; padding: 1em; text-align: center; }
+    .logo { max-height: 100px; margin: 10px auto; display: block; }
+    .lang-switch { position: absolute; top: 10px; right: 10px; }
+    .container { max-width: 600px; margin: auto; padding: 2em; background: #1a1a1a; border-radius: 8px; }
+    input, textarea { width: 100%; margin-top: 10px; padding: 10px; border-radius: 4px; border: none; }
+    button { margin-top: 10px; padding: 10px 20px; background: #f90; border: none; border-radius: 4px; color: #000; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" class="logo" alt="BRYT logo" />
+    <h1 id="title">Help animals — get BRYT token!</h1>
+    <div class="lang-switch">
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('ua')">UA</button>
+    </div>
+  </header>
+  <div class="container">
+    <p id="mission">We created BRYT to support stray animals. Every donation gives them a chance for a better life.</p>
+    <p><strong id="wallet-label">Donate to wallet:</strong><br> <code>0xf1f843bd9cf20e99e14d8950b6b49490dd3faa26</code></p>
+    <form>
+      <label id="name-label">Name (optional):</label>
+      <input type="text" name="name" />
+      <label>Email (optional):</label>
+      <input type="email" name="email" />
+      <label id="wallet-field-label">Your wallet address:</label>
+      <input type="text" name="wallet" required />
+      <label id="amount-label">Donation amount:</label>
+      <input type="text" name="amount" />
+      <button type="submit" id="submit-btn">Submit</button>
+    </form>
+  </div>
+  <script>
+    function setLang(lang) {
+      const text = {
+        en: {
+          title: "Help animals — get BRYT token!",
+          mission: "We created BRYT to support stray animals. Every donation gives them a chance for a better life.",
+          "wallet-label": "Donate to wallet:",
+          "name-label": "Name (optional):",
+          "wallet-field-label": "Your wallet address:",
+          "amount-label": "Donation amount:",
+          "submit-btn": "Submit"
+        },
+        ua: {
+          title: "Допоможи тваринам — отримай токен BRYT!",
+          mission: "Ми створили BRYT, щоб підтримати безпритульних тварин. Кожен донат — це шанс на краще життя.",
+          "wallet-label": "Переказати на гаманець:",
+          "name-label": "Ім'я (необов’язково):",
+          "wallet-field-label": "Ваш гаманець:",
+          "amount-label": "Сума донату:",
+          "submit-btn": "Надіслати"
+        }
+      };
+      const strings = text[lang];
+      for (let id in strings) {
+        document.getElementById(id).textContent = strings[id];
+      }
+    }
+  </script>
+</body>
+</html>
